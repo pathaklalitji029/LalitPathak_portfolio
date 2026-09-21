@@ -3,7 +3,7 @@
 
 Personal portfolio site for **Lalit Pathak** — Data Analyst & aspiring ML Engineer, currently working as a NOC Engineer at Bharti Airtel.
 
-🔗 **Live site:** 
+🔗 **Live site:** http://lalitpathak0.netlify.app/
 
 ## About
 
