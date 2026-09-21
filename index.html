@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lalit Pathak — Data Science, Machine Learning and Data Analytics portfolio.">
+<title>Lalit Pathak | Data Science Portfolio</title>
+<style>
+:root{
+  --bg:#05080d; --bg2:#080e17; --panel:#0b121d; --panel2:#0e1723;
+  --text:#f3f7fb; --muted:#9aa9bb; --line:rgba(255,255,255,.10);
+  --cyan:#55e6d0; --blue:#6ca8ff; --purple:#9c7cff;
+  --shadow:0 25px 80px rgba(0,0,0,.38); --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(circle at 80% 5%,rgba(108,168,255,.11),transparent 28%),
+radial-gradient(circle at 5% 35%,rgba(85,230,208,.07),transparent 26%),var(--bg);
+color:var(--text);line-height:1.65;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 75%);z-index:-1}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(5,8,13,.68);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;font-size:1.05rem;letter-spacing:.05em}.brand em{font-style:normal;color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:26px;color:#aebbd0;font-size:.9rem}
+.nav-links a{transition:.2s}.nav-links a:hover{color:#fff}
+.nav-cta{border:1px solid rgba(85,230,208,.35);padding:9px 14px;border-radius:10px;color:var(--cyan)!important}
+.menu{display:none;background:none;border:0;color:#fff;font-size:1.55rem}
+section{padding:110px 0;scroll-margin-top:70px}
+.hero{min-height:100vh;padding-top:130px;display:flex;align-items:center;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--cyan);font-size:.76rem;font-weight:800;margin-bottom:20px}
+.pulse{width:8px;height:8px;background:var(--cyan);border-radius:50%;box-shadow:0 0 20px var(--cyan);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 4px var(--cyan)}}
+h1{font-size:clamp(3.3rem,7vw,6.6rem);line-height:.91;letter-spacing:-.075em;max-width:850px}
+.grad{background:linear-gradient(110deg,#fff 20%,#c8dcff 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:1.12rem;color:var(--muted);max-width:700px;margin:27px 0 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:31px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:12px;border:1px solid var(--line);font-weight:800;font-size:.9rem;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
+.btn.primary{background:var(--cyan);color:#041613;border-color:var(--cyan);box-shadow:0 10px 35px rgba(85,230,208,.13)}
+.socials{display:flex;gap:9px;margin-top:24px}
+.social{width:39px;height:39px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;color:#b7c6d8;font-weight:900;font-size:.78rem;transition:.2s}
+.social:hover{color:var(--cyan);border-color:rgba(85,230,208,.4);transform:translateY(-2px)}
+.hero-visual{position:relative;min-height:540px}
+.orb{position:absolute;width:430px;height:430px;border-radius:50%;right:20px;top:30px;background:radial-gradient(circle at 40% 35%,rgba(85,230,208,.15),rgba(108,168,255,.04) 45%,transparent 67%);filter:blur(1px)}
+.profile{position:absolute;right:45px;top:0;width:390px;height:500px;z-index:5;cursor:pointer;transition:transform .35s ease,filter .35s ease,box-shadow .35s ease;object-fit:cover;object-position:center top;border-radius:195px 195px 32px 32px;filter:saturate(.9) contrast(1.03);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)}
+.data-card{position:absolute;left:0;bottom:42px;width:280px;z-index:10;background:rgba(11,18,29,.86);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.hero-visual.photo-front .profile{z-index:30;transform:translateX(-18px) scale(1.035);filter:saturate(1) contrast(1.03);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(85,230,208,.22)}
+.hero-visual.photo-front .data-card{z-index:4;opacity:.9;transform:translateX(-12px);transition:transform .35s ease,opacity .35s ease}
+.data-card{transition:transform .35s ease,opacity .35s ease}
+.data-top{display:flex;justify-content:space-between;color:#8090a5;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em}
+.mini-chart{height:92px;margin-top:12px;position:relative;overflow:hidden}
+.mini-chart svg{width:100%;height:100%}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.mini-stat{background:rgba(255,255,255,.035);border:1px solid var(--line);padding:10px;border-radius:12px}.mini-stat b{display:block;color:var(--cyan);font-size:1.1rem}.mini-stat span{font-size:.7rem;color:#78889c}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:42px}
+.eyebrow{color:var(--cyan);font-size:.75rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+h2{font-size:clamp(2.3rem,4vw,4rem);line-height:1;letter-spacing:-.055em;margin-top:9px}
+.section-head>p{max-width:520px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.panel{background:linear-gradient(145deg,rgba(16,27,41,.82),rgba(8,14,22,.78));border:1px solid var(--line);border-radius:var(--radius);padding:29px;box-shadow:var(--shadow)}
+.about-copy{font-size:1.04rem;color:#c3cfdd}.about-copy p+p{margin-top:18px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:100%}
+.metric{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;justify-content:end}
+.metric b{font-size:2rem;letter-spacing:-.04em;color:#fff}.metric span{color:#8392a5;font-size:.8rem}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.skill{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);min-height:165px;transition:.25s}
+.skill:hover{transform:translateY(-5px);border-color:rgba(85,230,208,.27);background:rgba(85,230,208,.035)}
+.skill-icon{font-size:1.35rem;color:var(--cyan);margin-bottom:18px}.skill h3{font-size:.98rem}.skill p{color:#7f8ea1;font-size:.82rem;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.chip{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:999px;padding:5px 9px;font-size:.73rem;color:#b6c5d6}
+.timeline{position:relative}.timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(255,255,255,.05))}
+.exp{position:relative;padding-left:48px;margin-bottom:20px}.exp:last-child{margin-bottom:0}
+.exp:before{content:"";position:absolute;left:7px;top:28px;width:11px;height:11px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 6px rgba(85,230,208,.07)}
+.exp-card{padding:26px}.exp-head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.exp h3{font-size:1.16rem}.company{color:var(--cyan)}.date{color:#75869b;font-size:.82rem}
+.exp ul{margin:14px 0 0 18px;color:#9cabbc}.exp li{margin:6px 0}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{min-height:390px;padding:27px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.3s}
+.project:hover{transform:translateY(-6px);border-color:rgba(108,168,255,.28)}
+.project:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-100px;bottom:-110px;background:rgba(108,168,255,.08);filter:blur(25px)}
+.project-num{font-size:.72rem;color:#65758b;letter-spacing:.14em}.project h3{font-size:1.55rem;letter-spacing:-.035em;margin-top:7px}.project .tag{color:var(--cyan);font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;font-weight:900}
+.project-desc{color:#8e9eb0;margin:15px 0}.project ul{color:#aebaca;margin-left:18px;font-size:.9rem}.project li{margin:7px 0}
+.project-bottom{margin-top:auto;display:flex;align-items:end;justify-content:space-between;gap:15px;padding-top:22px}.project-link{color:var(--cyan);font-weight:800;font-size:.83rem;white-space:nowrap}
+.edu-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.edu{padding:28px}.edu h3{font-size:1.18rem}.edu p{color:#8c9bad;margin-top:5px}
+.achievement-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.achievement b{display:block;font-size:2.5rem;color:var(--cyan);letter-spacing:-.06em}.achievement h3{margin-top:7px}.achievement p{color:#8d9cad;margin-top:7px}
+.contact{position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(14,28,43,.95),rgba(7,15,24,.92));border:1px solid var(--line);border-radius:30px;padding:55px}
+.contact:after{content:"";position:absolute;right:-80px;top:-120px;width:360px;height:360px;border-radius:50%;background:rgba(85,230,208,.09);filter:blur(30px)}
+.contact h2{max-width:700px}.contact p{color:#94a3b5;max-width:620px;margin-top:15px}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#6f8095;font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+.modal{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(12px)}.modal.open{display:grid}
+.modal-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:#0b121d;border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:var(--shadow);position:relative}
+.close{position:absolute;right:18px;top:15px;background:none;border:0;color:#b8c5d4;font-size:1.5rem;cursor:pointer}.modal-box h3{font-size:1.8rem}.modal-box p{color:#96a6b8;margin:12px 0}.modal-box ul{margin:12px 0 0 20px;color:#b5c2d1}.modal-links{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:570px;max-width:650px}.skills-grid{grid-template-columns:repeat(2,1fr)}.about-grid,.edu-grid{grid-template-columns:1fr}}
+@media(max-width:720px){
+  .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:rgba(5,8,13,.97);padding:22px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}.menu{display:block}
+  section{padding:80px 0}.hero{padding-top:105px}.hero-visual{min-height:500px}.profile{width:300px;height:400px;right:5%;}.orb{width:330px;height:330px;right:0}.data-card{left:0;bottom:15px;width:250px}
+  .section-head{display:block}.section-head>p{margin-top:16px}.projects-grid,.achievement-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}.contact{padding:32px 23px}
+}
+@media(max-width:480px){h1{font-size:3.2rem}.skills-grid{grid-template-columns:1fr}.profile{width:260px;height:360px}.hero-visual{min-height:455px}.data-card{width:225px}.metrics{grid-template-columns:1fr 1fr}.metric{padding:15px}.metric b{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">LALIT<span>.</span></a>
+    <button class="menu" aria-label="Menu">☰</button>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#achievements">Achievements</a>
+      <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="kicker"><span class="pulse"></span> Data Science · ML · Analytics</div>
+      <h1>Hi, I'm <span class="grad">Lalit.</span><br>I turn data into <span class="grad">insight.</span></h1>
+      <p class="hero-sub">Data-focused B.Tech CSE graduate who builds analytical solutions, machine learning models, dashboards, and AI applications — from raw data to something people can actually use.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">Explore My Work ↓</a>
+        <a class="btn" href="#contact">Connect With Me ↗</a>
+      </div>
+      <div class="socials">
+        <a class="social" title="GitHub" href="https://github.com/pathaklalitji029" target="_blank" rel="noopener">GH</a>
+        <a class="social" title="LinkedIn" href="https://www.linkedin.com/in/pathaklalitji029" target="_blank" rel="noopener">in</a>
+        <a class="social" title="LeetCode" href="https://leetcode.com/u/Lalit_pathak" target="_blank" rel="noopener">LC</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="orb"></div>
+      <img class="profile" src="assets/patthak_photo.png" alt="Lalit Pathak profile photo" title="Click to bring photo forward" tabindex="0" role="button" aria-label="Bring profile photo forward">
+      <div class="data-card">
+        <div class="data-top"><span>Data activity</span><span>2026</span></div>
+        <div class="mini-chart">
+          <svg viewBox="0 0 280 92" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 76 C20 72 25 61 45 65 S70 48 88 54 S110 29 130 42 S151 49 169 30 S193 42 209 20 S235 29 254 13 S268 17 280 4" fill="none" stroke="#55e6d0" stroke-width="3"/>
+            <path d="M0 76 C20 72 25 61 45 65 S70 48 88 54 S110 29 130 42 S151 49 169 30 S193 42 209 20 S235 29 254 13 S268 17 280 4 L280 92 L0 92Z" fill="rgba(85,230,208,.06)"/>
+          </svg>
+        </div>
+        <div class="stat-row"><div class="mini-stat"><b>340+</b><span>LeetCode</span></div><div class="mini-stat"><b>50K+</b><span>Records</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">01 / About</div><h2>More than a resume.</h2></div><p>I like the part of data work where a messy problem becomes a clear story, useful metric, or working model.</p></div>
+  <div class="about-grid">
+    <div class="panel about-copy reveal">
+      <p>I'm a B.Tech Computer Science & Engineering graduate from ITM Aligarh with a focus on Data Science, Data Analytics, and Machine Learning. My work spans Python and SQL analysis, Power BI dashboards, predictive modeling, NLP, and Generative AI.</p>
+      <p>I've built end-to-end projects such as a taxi analytics dashboard, customer churn analysis, a Random Forest house-price prediction system, and LearnSphere — a local RAG-based AI teaching assistant.</p>
+      <p>Today, as a NOC Engineer at Bharti Airtel, I work with live telecom operations, investigate network faults, and handle incidents in a 24/7 environment. That experience has strengthened the same thing I bring to data work: structured problem solving under pressure.</p>
+    </div>
+    <div class="panel reveal"><div class="metrics">
+      <div class="metric"><b>340+</b><span>LeetCode problems</span></div>
+      <div class="metric"><b>50K+</b><span>Taxi records analyzed</span></div>
+      <div class="metric"><b>10+</b><span>Featured end-to-end projects</span></div>
+      <div class="metric"><b>2026</b><span>B.Tech CSE graduate</span></div>
+    </div></div>
+  </div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">02 / Toolkit</div><h2>What I work with.</h2></div><p>A practical stack built around Python, SQL, analytics, machine learning, BI, and AI.</p></div>
+  <div class="skills-grid">
+    <div class="skill reveal"><div class="skill-icon">⌘</div><h3>Programming & Database</h3><p>Core tools for data and application logic.</p><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">◫</div><h3>Data Analysis</h3><p>Turning raw data into reliable insights.</p><div class="chips"><span class="chip">EDA</span><span class="chip">Cleaning</span><span class="chip">Feature Engineering</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">⌁</div><h3>Machine Learning</h3><p>Model building and evaluation.</p><div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Predictive Modeling</span><span class="chip">NLP</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">▥</div><h3>Visualization & BI</h3><p>Communicating data clearly.</p><div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Excel</span><span class="chip">Tableau</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">◉</div><h3>Python Ecosystem</h3><p>Analysis, visualization and notebooks.</p><div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">✦</div><h3>Generative AI</h3><p>Building practical AI workflows.</p><div class="chips"><span class="chip">RAG</span><span class="chip">LLaMA</span><span class="chip">Whisper</span><span class="chip">Ollama</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">⌘</div><h3>Tools & Platforms</h3><p>Development and collaboration.</p><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Jupyter</span><span class="chip">VS Code</span></div></div>
+    <div class="skill reveal"><div class="skill-icon">⌁</div><h3>Telecom & Networking</h3><p>Live network operations experience.</p><div class="chips"><span class="chip">MSAN</span><span class="chip">Tejas</span><span class="chip">Altiplano</span><span class="chip">Huawei</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">03 / Experience</div><h2>From code to live systems.</h2></div><p>Experience across Python development, data science, and real-time telecom operations.</p></div>
+  <div class="timeline">
+    <div class="exp reveal"><div class="panel exp-card"><div class="exp-head"><h3>NOC Engineer · <span class="company">Bharti Airtel Pvt Ltd</span></h3><span class="date">Jul 2026 — Present</span></div><ul><li>Troubleshoot customer broadband issues across DSL and FTTH using CRM and ticketing systems.</li><li>Work with MSAN, Tejas, Altiplano, and Huawei platforms to identify and resolve network faults.</li><li>Monitor network operations in a 24/7 environment and manage incidents to restore service quickly.</li></ul><div class="chips"><span class="chip">Network Monitoring</span><span class="chip">Incident Troubleshooting</span><span class="chip">FTTH</span></div></div></div>
+    <div class="exp reveal"><div class="panel exp-card"><div class="exp-head"><h3>Data Science Intern · <span class="company">CodeAlpha</span></h3><span class="date">Sep 2025 — Dec 2025</span></div><ul><li>Delivered 4 end-to-end data science projects covering data cleaning, EDA, and predictive modeling.</li><li>Built and evaluated 3+ classification and regression models using Scikit-learn, Pandas, and NumPy.</li></ul><div class="chips"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">EDA</span></div></div></div>
+    <div class="exp reveal"><div class="panel exp-card"><div class="exp-head"><h3>Python Development Intern · <span class="company">CodeAlpha</span></h3><span class="date">Aug 2025 — Sep 2025</span></div><ul><li>Developed 3+ Python scripts and mini-projects to solve practical problems.</li><li>Applied data structures, functions, and control flow to write clean, modular, reusable code.</li></ul><div class="chips"><span class="chip">Python</span><span class="chip">DSA</span><span class="chip">Automation</span></div></div></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">04 / Selected Work</div><h2>Things I've built.</h2></div><p>Data science, machine learning, dashboards, AI, and responsive web projects — with live demos where available.</p></div>
+  <div class="projects-grid">
+    <article class="panel project reveal" data-project="taxi"><div><span class="project-num">01 — BUSINESS INTELLIGENCE</span><h3>Taxi Fare Analysis Dashboard</h3><p class="project-desc">A 7-page Power BI analytics experience built around 50,000+ taxi trips and business-focused KPIs.</p><ul><li>20+ DAX measures and calculated columns.</li><li>Reliable data model for consistent reporting.</li><li>Revenue, trip, cancellation and rating analysis.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span></div><a class="project-link" href="#projects">View case study ↗</a></div></article>
+    <article class="panel project reveal" data-project="churn"><div><span class="project-num">02 — DATA ANALYTICS</span><h3>Customer Churn Analysis</h3><p class="project-desc">End-to-end churn analysis connecting SQLite with Python to turn customer behavior into retention insights.</p><ul><li>Churn 28.6% · retention 71.4% · ARPU and revenue at risk.</li><li>Monthly plans: 55.6% churn vs 8.3% annual.</li><li>Visualized trends and presented retention recommendations.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Pandas</span></div><a class="project-link" href="#projects">View case study ↗</a></div></article>
+    <article class="panel project reveal" data-project="estima"><div><span class="project-num">03 — MACHINE LEARNING</span><h3>EstimaAI</h3><p class="project-desc">Random Forest house-price prediction system with a Flask deployment layer for real-time predictions.</p><ul><li>Preprocessing and feature preparation with Scikit-learn.</li><li>Random Forest regression model and evaluation.</li><li>Separate training and deployment components.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Random Forest</span><span class="chip">Flask</span></div><a class="project-link" href="#projects">View case study ↗</a></div></article>
+    <article class="panel project reveal" data-project="learnsphere"><div><span class="project-num">04 — GENERATIVE AI</span><h3>LearnSphere</h3><p class="project-desc">A RAG-based AI teaching assistant that answers student questions from lecture content using a local LLM pipeline.</p><ul><li>Whisper speech-to-text → embeddings → vector search.</li><li>FAISS/ChromaDB retrieval with LLaMA via Ollama.</li><li>Interactive Streamlit interface with grounded answers.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">RAG</span><span class="chip">LLaMA</span><span class="chip">Streamlit</span></div><a class="project-link" href="#projects">View case study ↗</a></div></article>
+
+    <article class="panel project reveal" data-project="bella"><div><span class="project-num">05 — FRONTEND</span><h3>Bella Vista Restaurant</h3><p class="project-desc">A responsive restaurant website focused on clean visual presentation, menu browsing, and a polished customer-facing experience.</p><ul><li>Designed a modern restaurant landing experience.</li><li>Responsive layout for desktop and mobile users.</li><li>Focused on visual hierarchy, usability, and presentation.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div><a class="project-link" href="https://bellavistarestaurant00.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a></div></article>
+
+    <article class="panel project reveal" data-project="food"><div><span class="project-num">06 — FRONTEND</span><h3>Food Project Website</h3><p class="project-desc">A responsive food-focused website built to present products and content through a clean, user-friendly interface.</p><ul><li>Built a responsive customer-facing web experience.</li><li>Structured reusable sections for clear navigation.</li><li>Focused on clean UI and mobile responsiveness.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div><a class="project-link" href="https://foodprojcetwebsite.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a></div></article>
+
+    <article class="panel project reveal" data-project="laundry"><div><span class="project-num">07 — WEB APPLICATION</span><h3>Laundry Web Service</h3><p class="project-desc">A service-oriented laundry website designed around customer service presentation and online interaction.</p><ul><li>Created a responsive service website.</li><li>Organized services and customer-facing information clearly.</li><li>Integrated an email/contact workflow for user communication.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">EmailJS</span></div><a class="project-link" href="https://laundarywebservices029.netlify.app/" target="_blank" rel="noopener">Live Demo ↗</a></div></article>
+
+    <article class="panel project reveal" data-project="icecream"><div><span class="project-num">08 — MACHINE LEARNING</span><h3>Ice Cream Sales Prediction</h3><p class="project-desc">A regression project using historical temperature/sales relationships to predict ice cream sales with Linear Regression.</p><ul><li>Prepared data and explored the relationship between input features and sales.</li><li>Trained a Linear Regression model for prediction.</li><li>Evaluated model predictions and visualized the regression relationship.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span><span class="chip">Linear Regression</span></div><span class="project-link">ML Project</span></div></article>
+
+    <article class="panel project reveal" data-project="bmi"><div><span class="project-num">09 — MACHINE LEARNING</span><h3>BMI Category Prediction</h3><p class="project-desc">A KNN classification project that predicts BMI categories from height and weight-related inputs.</p><ul><li>Prepared and explored height/weight data.</li><li>Used K-Nearest Neighbors for classification.</li><li>Evaluated predictions using classification metrics and a confusion matrix.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Python</span><span class="chip">KNN</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span></div><span class="project-link">ML Project</span></div></article>
+
+    <article class="panel project reveal" data-project="heart"><div><span class="project-num">10 — MACHINE LEARNING</span><h3>Heart Disease Prediction</h3><p class="project-desc">A classification project that uses patient-related features to build a machine learning model for heart disease prediction.</p><ul><li>Performed preprocessing and exploratory analysis.</li><li>Built and evaluated a classification model with Scikit-learn.</li><li>Used model evaluation techniques to understand prediction performance.</li></ul></div><div class="project-bottom"><div class="chips"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Classification</span><span class="chip">EDA</span></div><span class="project-link">ML Project</span></div></article>
+
+  </div>
+</div>
+</section>
+
+<section id="achievements">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">05 / Achievements</div><h2>Proof of consistency.</h2></div><p>Problem solving, competitive coding, and building under constraints.</p></div>
+  <div class="achievement-grid">
+    <div class="panel achievement reveal"><b>340+</b><h3>LeetCode Problems</h3><p>Strengthened data structures and algorithms through consistent problem solving.</p><div class="chips"><span class="chip">DSA</span><span class="chip">Python</span></div></div>
+    <div class="panel achievement reveal"><b>SIH '25</b><h3>College-Level Quarter-Finalist</h3><p>Reached the quarter-finals at ITM Aligarh with QuickHire, a freelancing platform designed to help students earn income through freelance work.</p><div class="chips"><span class="chip">QuickHire</span><span class="chip">Hackathon</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">06 / Education</div><h2>Academic foundation.</h2></div></div>
+  <div class="edu-grid">
+    <div class="panel edu reveal"><h3>Bachelor of Technology — Computer Science & Engineering</h3><p>ITM Aligarh (Affiliated to AKTU), Aligarh, Uttar Pradesh</p><p>2022 — 2026</p></div>
+    <div class="panel edu reveal"><h3>Senior Secondary — Class XII, PCM</h3><p>L.B.K Public School · CBSE</p><p>2020 — 2021</p></div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="contact reveal">
+    <div class="eyebrow">07 / Let's Connect</div>
+    <h2>Have a data problem?<br><span class="grad">Let's build something useful.</span></h2>
+    <p>I'm open to entry-level opportunities in Data Analytics, Data Science, and Machine Learning. Explore my profiles or reach out directly.</p>
+    <div class="contact-actions">
+      <a class="btn primary" href="https://github.com/pathaklalitji029" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/pathaklalitji029" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://leetcode.com/u/Lalit_pathak" target="_blank" rel="noopener">LeetCode ↗</a>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><span>© 2026 Lalit Pathak</span><span>Data Science · Machine Learning · Analytics · AI</span></div></footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="close" aria-label="Close">×</button>
+    <div class="eyebrow" id="modalTag"></div><h3 id="modalTitle"></h3><p id="modalText"></p>
+    <ul id="modalList"></ul><div class="modal-links" id="modalLinks"></div>
+  </div>
+</div>
+
+<script>
+const menu=document.querySelector('.menu'), nav=document.querySelector('.nav-links');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// Click the profile photo to bring it above the activity card.
+const heroVisual=document.querySelector('.hero-visual');
+const profilePhoto=document.querySelector('.profile');
+const togglePhotoFront=()=>heroVisual.classList.toggle('photo-front');
+profilePhoto.addEventListener('click',togglePhotoFront);
+profilePhoto.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();togglePhotoFront();}
+});
+
+
+const data={
+  bella:{tag:'Frontend',title:'Bella Vista Restaurant',text:'A responsive restaurant website created as a polished customer-facing web experience.',list:['Modern restaurant-focused layout and visual hierarchy.','Responsive experience across screen sizes.','Live Netlify deployment available from the project card.']},
+  food:{tag:'Frontend',title:'Food Project Website',text:'A responsive food-focused website designed for clean presentation and easy navigation.',list:['Customer-facing responsive layout.','Organized sections for clear content presentation.','Live Netlify deployment available from the project card.']},
+  laundry:{tag:'Web Application',title:'Laundry Web Service',text:'A service-oriented laundry website with a customer-focused interface and contact workflow.',list:['Responsive service presentation.','Clear customer-facing sections and navigation.','EmailJS-based communication workflow.']},
+  icecream:{tag:'Machine Learning',title:'Ice Cream Sales Prediction',text:'A Linear Regression project for predicting ice cream sales from historical data.',list:['Data preparation and exploratory analysis.','Linear Regression model training and prediction.','Visualization of the relationship between input and predicted sales.']},
+  bmi:{tag:'Machine Learning',title:'BMI Category Prediction',text:'A KNN classification project that predicts BMI categories from height and weight inputs.',list:['Prepared height and weight features.','K-Nearest Neighbors classification.','Confusion matrix and classification evaluation.']},
+  heart:{tag:'Machine Learning',title:'Heart Disease Prediction',text:'A machine learning classification project using patient-related features to predict heart disease risk categories.',list:['Data preprocessing and exploratory analysis.','Classification model built with Scikit-learn.','Model evaluation to understand predictive performance.']}
+,
+
+ taxi:{tag:'Business Intelligence',title:'Taxi Fare Analysis Dashboard',text:'A 7-page interactive Power BI report designed to turn 50,000+ taxi trip records into clear business KPIs and patterns.',list:['20+ DAX measures and calculated columns, including rolling averages and VAR-based logic.','Cleaned and structured raw data into a reliable reporting model.','Analyzed revenue, fares, trips, cancellations and ratings.','Created custom card visuals and a professional dashboard layout.']},
+ churn:{tag:'Data Analytics',title:'Customer Churn Analysis',text:'An end-to-end customer churn investigation combining SQLite, SQL/Pandas analysis, feature engineering and visualization.',list:['Churn rate: 28.6% and retention rate: 71.4%.','Calculated ARPU, average tenure and revenue at risk.','Monthly-plan churn: 55.6% versus 8.3% for annual plans.','Presented retention recommendations using a PowerPoint deliverable.']},
+ estima:{tag:'Machine Learning',title:'EstimaAI — House Price Prediction',text:'A Random Forest regression system that predicts house prices from property features and exposes the trained model through Flask.',list:['Preprocessing and feature preparation with Pandas and Scikit-learn.','Random Forest regression model with model evaluation.','Flask application for real-time user-input predictions.','Separated training and deployment components for easier reuse and updates.']},
+ learnsphere:{tag:'Generative AI',title:'LearnSphere — RAG AI Teaching Assistant',text:'A local Retrieval-Augmented Generation assistant that answers student questions using retrieved lecture context.',list:['Whisper converts lecture speech into searchable text.','Embeddings and FAISS/ChromaDB retrieve relevant lecture chunks.','LLaMA via Ollama generates grounded responses locally.','Streamlit provides the interactive question-and-answer experience.']}
+};
+const modal=document.getElementById('modal'), close=modal.querySelector('.close');
+document.querySelectorAll('.project').forEach(card=>card.addEventListener('click',e=>{
+  if(e.target.closest('a')) return;
+  const d=data[card.dataset.project];
+  document.getElementById('modalTag').textContent=d.tag;
+  document.getElementById('modalTitle').textContent=d.title;
+  document.getElementById('modalText').textContent=d.text;
+  document.getElementById('modalList').innerHTML=d.list.map(x=>`<li>${x}</li>`).join('');
+  const live={bella:'https://bellavistarestaurant00.netlify.app/',food:'https://foodprojcetwebsite.netlify.app/',laundry:'https://laundarywebservices029.netlify.app/'}[card.dataset.project];
+  document.getElementById('modalLinks').innerHTML=live
+    ? `<a class="btn primary" href="${live}" target="_blank" rel="noopener">Open Live Demo ↗</a><a class="btn" href="https://github.com/pathaklalitji029" target="_blank" rel="noopener">GitHub Profile ↗</a>`
+    : `<a class="btn primary" href="https://github.com/pathaklalitji029" target="_blank" rel="noopener">GitHub Profile ↗</a>`;
+  modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+}));
+close.addEventListener('click',()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')});
+modal.addEventListener('click',e=>{if(e.target===modal)close.click()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close.click()});
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
+</script>
+</body>
+</html>
